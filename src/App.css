@@ -26,6 +26,10 @@
   text-transform: capitalize;
 }
 
+.header nav li:last-of-type a {
+  text-transform: uppercase;
+}
+
 .header li {
   list-style: none;
 }
@@ -44,7 +48,7 @@ nav:hover > ul a:hover {
   transition: all ease-in-out .2s;
 }
 
-nav:hover > ul a.active {
+nav li.active {
   color: #e4a803;
 }
 
@@ -318,6 +322,10 @@ div.line {
   nav > ul {
     display: flex;
     gap: 1rem;
+  }
+
+  nav li.active {
+    border-bottom: 2px solid #e4a803;
   }
 
   /* HOME */

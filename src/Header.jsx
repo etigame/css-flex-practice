@@ -1,4 +1,14 @@
+import {useState} from 'react'
+
 export default function Header({ setCmp, isDark, setIsDark }) {
+  const cmps = ['home', 'about', 'faq']
+  const [activeLink, setActiveLink] = useState(0)
+
+  const handleClick = (cmp, idx) => {
+    setCmp(cmp)
+    setActiveLink(idx)
+  }
+
   return (
     <section className="header">
       <a className="logo" href="#">
@@ -7,7 +17,16 @@ export default function Header({ setCmp, isDark, setIsDark }) {
       <nav>
         <i className="fa-solid fa-bars"></i>
         <ul>
-          <li>
+          {cmps.map((cmp, idx) => {
+            return (
+              <li key={cmp} className={activeLink === idx ? 'active' : ''}>
+                <a href="#" onClick={() => handleClick(cmp, idx)}>
+                  {cmp}
+                </a>
+              </li>
+            )
+          })}
+          {/* <li>
             <a href="#" onClick={() => setCmp('home')}>
               home
             </a>
@@ -21,10 +40,12 @@ export default function Header({ setCmp, isDark, setIsDark }) {
             <a href="#" onClick={() => setCmp('faq')}>
               FAQ
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
-      <button className="mode-btn" onClick={() => setIsDark(prev => !prev)}>{isDark ? '☀️' : '🌙'}</button>
+      <button className="mode-btn" onClick={() => setIsDark((prev) => !prev)}>
+        {isDark ? '☀️' : '🌙'}
+      </button>
     </section>
   )
 }
