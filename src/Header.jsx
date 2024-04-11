@@ -1,4 +1,4 @@
-export default function Header({ setCmp }) {
+export default function Header({ setCmp, isDark, setIsDark }) {
   return (
     <section className="header">
       <a className="logo" href="#">
@@ -24,7 +24,7 @@ export default function Header({ setCmp }) {
           </li>
         </ul>
       </nav>
-      <button className="mode-btn">🌙</button>
+      <button className="mode-btn" onClick={() => setIsDark(prev => !prev)}>{isDark ? '☀️' : '🌙'}</button>
     </section>
   )
 }

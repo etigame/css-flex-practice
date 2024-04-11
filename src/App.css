@@ -22,7 +22,7 @@
 
 .header nav a {
   text-decoration: none;
-  color: #000;
+  color: inherit;
   text-transform: capitalize;
 }
 
@@ -41,6 +41,7 @@ nav > ul {
 
 nav:hover > ul a:hover {
   color: #e4a803;
+  transition: all ease-in-out .2s;
 }
 
 nav:hover > ul a.active {
@@ -84,6 +85,7 @@ nav:hover > ul a.active {
   border-radius: 20px;
   width: 500px;
   max-width: 100%;
+  mix-blend-mode: lighten;
 }
 
 .hero .text {
@@ -259,6 +261,14 @@ div.line {
   padding: 1rem;
 }
 
+.dark {
+  background-color: #262626;
+    color: #fff;
+}
+
+.dark .logo {
+  color: #fff;
+}
 
 @media screen and (width < 700px) {
   /* HEADER */
@@ -274,6 +284,11 @@ div.line {
     gap: 1rem;
     width: 200px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .dark .header ul {
+    background-color: #262626;
   }
 
   /* ABOUT  */
